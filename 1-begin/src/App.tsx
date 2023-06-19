@@ -5,6 +5,7 @@ import { Interpolation } from './components/Interpolation';
 import { Lists } from './components/Lists';
 import { InterpolationObject } from './components/InterpolationObject';
 import { ConditionalRenderingObject } from './components/ConditionalRenderingObject';
+import { ListsObject } from './components/ListsObject';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <Lists></Lists>
             <InterpolationObject></InterpolationObject>
             <ConditionalRenderingObject></ConditionalRenderingObject>
+            <ListsObject></ListsObject>
         </>
     );
 }
