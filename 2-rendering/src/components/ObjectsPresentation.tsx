@@ -20,12 +20,36 @@ export const ObjectsPresentation = () => {
         },
     ];
 
+    const handleClick = (boat: IBoat) => {
+        console.log('Du köpte båten: ', boat.name);
+    };
+
+    const handleChange = (boat: IBoat) => {
+        boat.engine = !boat.engine;
+        console.log('Du klickade på engine', boat.engine);
+    };
+
     const html = boats.map((boat) => {
         return (
             <div key={boat.name}>
                 <h3>{boat.name}</h3>
-                Motor: <input type='checkbox' checked={boat.engine} />
+                Motor:
+                <input
+                    type='checkbox'
+                    checked={boat.engine}
+                    onChange={() => {
+                        handleChange(boat);
+                    }}
+                />
                 {boat.type === 'Segelbåt' ? <span>{boat.length} fot</span> : <h2>{boat.color}</h2>}
+                {/* <button onClick={handleClick}>Köp</button> */}
+                <button
+                    onClick={() => {
+                        handleClick(boat);
+                    }}
+                >
+                    Köp
+                </button>
             </div>
         );
     });
