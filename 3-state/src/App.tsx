@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { UserInput } from './components/UserInput';
 
 function App() {
   const [name, setName] = useState('Sandra');
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <h3 onClick={handleClick}>{name}</h3>
+      <UserInput></UserInput>
     </>
   );
 }
