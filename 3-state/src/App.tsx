@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import { UserInput } from './components/UserInput';
+import { ObjectInState } from './components/ObjectInState';
+import { ObjectsInState } from './components/ObjectsInState';
 
 function App() {
   const [name, setName] = useState('Sandra');
@@ -16,6 +18,8 @@ function App() {
     <>
       <h3 onClick={handleClick}>{name}</h3>
       <UserInput></UserInput>
+      <ObjectInState></ObjectInState>
+      <ObjectsInState></ObjectsInState>
     </>
   );
 }
