@@ -4,7 +4,7 @@ import { AddTodo } from './AddTodo';
 import { Todos } from './Todos';
 
 export const TodoApp = () => {
-  const [todos, setTodos] = useState<Todo[]>([new Todo('A task', false, 1), new Todo('Another task', false, 2)]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleToggle = (id: number) => {
     console.log('Do toggle in TodoApp, id:', id);
@@ -20,10 +20,20 @@ export const TodoApp = () => {
     );
   };
 
+  const createTodo = (text: string) => {
+    console.log('Create todo', text);
+
+    setTodos([...todos, new Todo(text, false, new Date().getTime())]);
+  };
+
+  const removeTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <>
-      <AddTodo></AddTodo>
-      <Todos listOfTodos={todos} toggle={handleToggle}></Todos>
+      <AddTodo addTodo={createTodo}></AddTodo>
+      <Todos listOfTodos={todos} toggle={handleToggle} remove={removeTodo}></Todos>
     </>
   );
 };
