@@ -3,6 +3,7 @@ import { Home } from './components/Home';
 import { Movies } from './components/Movies';
 import { Movie } from './components/Movie';
 import { Layout } from './components/Layout';
+import { moviesLoader } from './loaders/moviesLoader';
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
       {
         path: '/movies',
         element: <Movies></Movies>,
+        loader: moviesLoader,
       },
       {
         path: '/movie/:id',
