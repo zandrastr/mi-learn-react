@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { IMoviesLoader } from '../loaders/moviesLoader';
 
 export const Movies = () => {
@@ -10,6 +10,7 @@ export const Movies = () => {
         return (
           <div>
             <h3>{movie.Title}</h3>
+            <Link to={'/movie/' + movie.imdbID}>Read more...</Link>
           </div>
         );
       })}
