@@ -4,11 +4,13 @@ import { Movies } from './components/Movies';
 import { Movie } from './components/Movie';
 import { Layout } from './components/Layout';
 import { moviesLoader } from './loaders/moviesLoader';
+import { ErrorPage } from './components/ErrorPage';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout></Layout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
