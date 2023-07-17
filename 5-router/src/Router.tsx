@@ -5,6 +5,7 @@ import { Movie } from './components/Movie';
 import { Layout } from './components/Layout';
 import { moviesLoader } from './loaders/moviesLoader';
 import { ErrorPage } from './components/ErrorPage';
+import { movieLoader } from './loaders/movieLoader';
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
       {
         path: '/movie/:id',
         element: <Movie></Movie>,
+        loader: movieLoader,
       },
     ],
   },
