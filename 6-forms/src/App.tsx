@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ChangeEvent, useState } from 'react';
+import './App.css';
+import { IceCream } from './models/iceCream';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [iceCream, setIceCream] = useState<IceCream>({
+    name: '',
+    price: 0,
+    flavour: '',
+    cone: false,
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+
+    //Handle different input types
+    if (e.target.type === 'number') {
+      setIceCream({ ...iceCream, [name]: +e.target.value });
+    } else if (e.target.type === 'checkbox') {
+      setIceCream({ ...iceCream, [name]: e.target.checked });
+    } else {
+      setIceCream({ ...iceCream, [name]: e.target.value });
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <form>
+      <input type='text' value={iceCream.name} onChange={handleChange} name='name' />
+      <input type='number' value={iceCream.price} onChange={handleChange} name='price' />
+      <input type='text' value={iceCream.flavour} onChange={handleChange} name='flavour' />
+      <input type='checkbox' checked={iceCream.cone} onChange={handleChange} name='cone' />
+
+      <button>Save</button>
+
+      {/* <p>{JSON.stringify(iceCream)}</p> */}
+    </form>
+  );
 }
 
-export default App
+export default App;
