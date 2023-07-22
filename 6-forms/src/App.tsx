@@ -8,6 +8,11 @@ function App() {
     price: 0,
     flavour: '',
     cone: false,
+    howToDo: {
+      step1: '',
+      step2: '',
+      step3: '',
+    },
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,6 +28,11 @@ function App() {
     }
   };
 
+  const handleToDoChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    setIceCream({ ...iceCream, howToDo: { ...iceCream.howToDo, [name]: e.target.value } });
+  };
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(iceCream);
@@ -34,6 +44,10 @@ function App() {
       <input type='number' value={iceCream.price} onChange={handleChange} name='price' />
       <input type='text' value={iceCream.flavour} onChange={handleChange} name='flavour' />
       <input type='checkbox' checked={iceCream.cone} onChange={handleChange} name='cone' />
+      <hr />
+      <input type='text' value={iceCream.howToDo.step1} onChange={handleToDoChange} name='step1' />
+      <input type='text' value={iceCream.howToDo.step2} onChange={handleToDoChange} name='step2' />
+      <input type='text' value={iceCream.howToDo.step3} onChange={handleToDoChange} name='step3' />
 
       <button>Save</button>
 
