@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { IceCreamForm } from './components/IceCreamForm';
 import { IceCream } from './models/iceCream';
 
