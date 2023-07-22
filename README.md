@@ -14,6 +14,6 @@ The repository is divided into different folders, and the topics cover:
 - React Hooks
 
 #### 🔧 Tech Stack: 
-Vite | JavaScript | React | HTML | CSS / SCSS
+Vite | JavaScript | TypeScript | React | HTML | CSS / SCSS
 
  
