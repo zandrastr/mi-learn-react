@@ -1,7 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { IceCream } from '../models/iceCream';
 
-export const IcecreamForm = () => {
+interface IIceCreamFormProps {
+  handleSave: (iceCream: IceCream) => void;
+}
+
+export const IceCreamForm = ({ handleSave }: IIceCreamFormProps) => {
   const [iceCream, setIceCream] = useState<IceCream>({
     name: '',
     price: 0,
@@ -35,6 +39,7 @@ export const IcecreamForm = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(iceCream);
+    handleSave(iceCream);
   };
 
   return (

@@ -1,10 +1,15 @@
 import './App.css';
-import { IcecreamForm } from './components/IcecreamForm';
+import { IceCreamForm } from './components/IceCreamForm';
+import { IceCream } from './models/iceCream';
 
 function App() {
+  const handleIceCreamSave = (iceCream: IceCream) => {
+    console.log('Recieved icecream:', iceCream);
+  };
+
   return (
     <>
-      <IcecreamForm></IcecreamForm>
+      <IceCreamForm handleSave={handleIceCreamSave}></IceCreamForm>
     </>
   );
 }
