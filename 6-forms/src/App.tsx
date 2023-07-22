@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import './App.css';
 import { IceCream } from './models/iceCream';
 
@@ -23,8 +23,13 @@ function App() {
     }
   };
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(iceCream);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input type='text' value={iceCream.name} onChange={handleChange} name='name' />
       <input type='number' value={iceCream.price} onChange={handleChange} name='price' />
       <input type='text' value={iceCream.flavour} onChange={handleChange} name='flavour' />
